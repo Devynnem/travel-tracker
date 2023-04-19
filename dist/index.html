@@ -7,28 +7,44 @@
   <title>Travel Tracker</title>
 </head>
 <body>
+  <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   <header id="header" class="website-header">
-    <h1 id="headerWelcome" class="header-welcome"></h1>
+    <h1 id="headerWelcome" class="header-welcome"> <!-- innerHTML will go in h1 for the Welcome...Whoever --></h1>
     <div class="lower-header">
-      <h2>Where in the World Should You Go?</h2>
+      <h1>Where in the World Should You Go?</h1>
+      <h2>Today is <!-- more innerHTML for date --></h2>
+      <h2>Total Spent on Trips This Year: <!--innerHTML --></h2>
     </div>
+    <form id="travelerRequests" class="traveler-request">
+      <h2 class="numberOfTravelers">Next Trip</h2>
+      <label for="date">Number of Travelers:</label>
+      <div id="calendar2"></div>
+      <input type="number" id="activityInput" required>
+      <input id="requestTrip" type="submit" value="Request Trip">
+      <section id="activityNotes" class="note"></section>
+    </form>
   </header>
   <div class="data-container">		
     <main id="main" class="main-section">
       <div class="trips-section">
+        <section id="allTrips" class="trips">
+          <h2 id="allTrips" class="trips">All Trips</h2>              
+          <button>All Trips</button>
+         </section>
         <section id="past" class="trips">
-          <h1 class="pastTrips">Past Trips</h1>
-          <h2 id="pastLocations">Where have you been?</h2>
+          <h2 id="pastLocations" class="trips">Where have you been?</h2>
+          <button>Past Trips</button>
         </section>
         <section id="pending" class="trips">
-          <h1 class="pending-trips">Pending Trips</h1>
-          <h2 id="pendingLocations">Where to next?</h2>              
+          <h2 id="pendingLocations" class="trips">Where to next?</h2>              
+          <button>Pending Trips</button>
          </section>
+      </div>
 
 
 
 
-  <img src="./images/turing-logo.png" alt="turing logo">
+ 
 
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
