@@ -4,13 +4,37 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>Travel Tracker</title>
 </head>
 <body>
+  <header id="header" class="website-header">
+    <h1 id="headerWelcome" class="header-welcome"></h1>
+    <div class="lower-header">
+      <h2>Where in the World Should You Go?</h2>
+    </div>
+  </header>
+  <div class="data-container">		
+    <main id="main" class="main-section">
+      <div class="trips-section">
+        <section id="past" class="trips">
+          <h1 class="pastTrips">Past Trips</h1>
+          <h2 id="pastLocations">Where have you been?</h2>
+        </section>
+        <section id="pending" class="trips">
+          <h1 class="pending-trips">Pending Trips</h1>
+          <h2 id="pendingLocations">Where to next?</h2>              
+         </section>
+
+
+
+
   <img src="./images/turing-logo.png" alt="turing logo">
-  
+
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
-
 </body>
+
 </html>
+<!-- I should see a dashboard page that shows me:
+All of my trips (past, upcoming and pending)
+Total amount I have spent on trips this year. This should be calculated from the trips data and include a travel agent’s 10% fee -->
