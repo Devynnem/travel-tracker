@@ -1,3 +1,29 @@
 body {
   background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
 }
+
+.website-header {
+  display: flex;
+  justify-content: center;
+}
+
+/* .data-container {
+  display: flex;
+  ;
+} */
+.trips-section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.trips {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+/* .pending-trips {
+  display:flex;
+  flex-direction: column;
+} */

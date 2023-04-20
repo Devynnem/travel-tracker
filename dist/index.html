@@ -4,13 +4,53 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>Travel Tracker</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
+  <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
+  <header id="header" class="website-header">
+    <h1 id="headerWelcome" class="header-welcome"> <!-- innerHTML will go in h1 for the Welcome...Whoever --></h1>
+    <div class="lower-header">
+      <h1>Where in the World Should You Go?</h1>
+      <h2>Today is <!-- more innerHTML for date --></h2>
+      <h2>Total Spent on Trips This Year: <!--innerHTML --></h2>
+    </div>
+    <form id="travelerRequests" class="traveler-request">
+      <h2 class="numberOfTravelers">Next Trip</h2>
+      <label for="date">Number of Travelers:</label>
+      <div id="calendar2"></div>
+      <input type="number" id="activityInput" required>
+      <input id="requestTrip" type="submit" value="Request Trip">
+      <section id="activityNotes" class="note"></section>
+    </form>
+  </header>
+  <div class="data-container">		
+    <main id="main" class="main-section">
+      <div class="trips-section">
+        <section id="allTrips" class="trips">
+          <h2 id="allTrips" class="trips">All Trips</h2>              
+          <button>All Trips</button>
+         </section>
+        <section id="past" class="trips">
+          <h2 id="pastLocations" class="trips">Where have you been?</h2>
+          <button>Past Trips</button>
+        </section>
+        <section id="pending" class="trips">
+          <h2 id="pendingLocations" class="trips">Where to next?</h2>              
+          <button>Pending Trips</button>
+         </section>
+      </div>
+
+
+
+
+ 
+
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
-
 </body>
+
 </html>
+<!-- I should see a dashboard page that shows me:
+All of my trips (past, upcoming and pending)
+Total amount I have spent on trips this year. This should be calculated from the trips data and include a travel agent’s 10% fee -->
