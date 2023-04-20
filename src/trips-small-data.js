@@ -1,4 +1,4 @@
-"trips" = [
+const trips = [
   {
   "id": 1,
   "userID": 44,
@@ -50,3 +50,4 @@
   "suggestedActivities": []
   }
 ]
+export default trips;

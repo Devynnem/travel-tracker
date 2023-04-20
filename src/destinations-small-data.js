@@ -1,4 +1,4 @@
-"destinations" = [
+const destinations = [
   {
   "id": 1,
   "destination": "Lima, Peru",
@@ -40,3 +40,5 @@
   "alt": "city with clear skys and a road in the day time"
   }
 ]
+
+export default destinations;
