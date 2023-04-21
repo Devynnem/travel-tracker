@@ -79,15 +79,15 @@ const trips = [
     "status": "pending",
     "suggestedActivities": [],
   },
-  {
-    "id": 116,
-    "userID": 2,
-    "destinationID": 7,
-    "travelers": 3,
-    "date": "2020/04/03",
-    "duration": 8,
-    "status": "approved",
-    "suggestedActivities": []
-    },
+  // {
+  //   "id": 116,
+  //   "userID": 2,
+  //   "destinationID": 7,
+  //   "travelers": 3,
+  //   "date": "2020/04/03",
+  //   "duration": 8,
+  //   "status": "approved",
+  //   "suggestedActivities": []
+  //   },
 ]
 export default trips;

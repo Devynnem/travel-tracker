@@ -61,11 +61,15 @@ class Trip {
       return acc
     }, []);
     const thisYearsCost = tripsThisYear.reduce((acc, cv) => {
-      acc += (cv.travelers * cv.
+      const overlap = thisYearsDestination.find(destination => destination.id === cv.destinationID )
+      acc += (overlap.estimatedLodgingCostPerDay * cv.duration)
+      acc += (overlap.estimatedFlightCostPerPerson * cv.travelers)
+      console.log("overlap", overlap)
       return acc
     }, 0)
-    console.log(tripsThisYear)
-    console.log(thisYearsDestination)
+    console.log("tripsThisYear", tripsThisYear)
+    console.log("thisYearsDestination", thisYearsDestination)
+    return thisYearsCost
   }
 };
 
