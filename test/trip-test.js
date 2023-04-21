@@ -123,6 +123,44 @@ describe('Trip', function() {
     expect(trip.findUpcomingTrips(35)).to.deep.equal(a);
   });
 
+  it('should be able to find past trips for a user', function() {
+    const a = [
+      {
+        "id": 1,
+        "userID": 44,
+        "destinationID": 49,
+        "travelers": 1,
+        "date": "2022/09/16",
+        "duration": 8,
+        "status": "approved",
+        "suggestedActivities": []
+        },
+    ];
+ 
+    expect(trip.findPastTrips(44)).to.deep.equal(a);
+  });
+
+  it('should find a destination by name', function() {
+    expect(trip.findDestinationByName("Lima, Peru")).to.deep.equal(destinationData[0]);
+    expect(trip.findDestinationByName("Denver, CO")).to.deep.equal("Destination not found.");
+  });
+
+  it('should find destination by id', function() {
+    const a = 
+      {
+        "id": 6,
+        "destination": "Jakarta, Indonesia",
+        "estimatedLodgingCostPerDay": 70,
+        "estimatedFlightCostPerPerson": 890,
+        "image": "https://images.unsplash.com/photo-1555333145-4acf190da336?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+        "alt": "lit up city at night"
+      };
+    expect(trip.findDestinationById(6)).to.deep.equal(a);
+  });
+
+  it('should calculate the cost of all trips for this year', function() {
+    expect(trip.calculateTotalCostPerYear(2)).to.equal(6040);
+  });
 
 
   // it('should return a message if no such user found', function() {

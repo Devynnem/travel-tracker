@@ -23,8 +23,50 @@ class Trip {
       let dateA = dayjs(trip.date);
       return dateA.isAfter(today);
     });
+  };
+
+  findPastTrips(id) {
+    const today = dayjs("2022/09/30");
+    return this.filterByTraveler(id).filter(trip => {
+    let dateA = dayjs(trip.date);
+    return dateA.isBefore(today);
+  });
+}; 
  
-};
+  findDestinationByName(name) {
+    const foundDestination = this.destinationData.find(destination => destination.destination === name)
+    if (!foundDestination) {
+      return "Destination not found."
+    }
+    return foundDestination
+  };
+
+  findDestinationById(tripId) {
+    return this.destinationData.find(destination => destination.id === tripId)
+  };
+
+  calculateTotalCostPerYear(travelerId) {
+    const travelerTrips = this.filterByTraveler(travelerId);
+    const tripsThisYear = travelerTrips.filter(trip => {
+      const splitDate = trip.date.split("/");
+      const year = splitDate[0];
+      return year === "2020";
+    })
+    const thisYearsDestination = tripsThisYear.map(trip => trip.destinationID).reduce((acc, cv) => {
+      this.destinationData.forEach(destination => {
+        if (destination.id === cv) {
+          acc.push(destination)
+        }
+      })
+      return acc
+    }, []);
+    const thisYearsCost = tripsThisYear.reduce((acc, cv) => {
+      acc += (cv.travelers * cv.
+      return acc
+    }, 0)
+    console.log(tripsThisYear)
+    console.log(thisYearsDestination)
+  }
 };
 
 
