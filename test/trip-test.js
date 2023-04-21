@@ -106,6 +106,25 @@ describe('Trip', function() {
     expect(trip.filterTripsByStatus("pending", 38)).to.deep.equal(b);
   });
 
+  it('should be able to find upcoming trips for a user', function() {
+    const a = [
+      {
+        "id": 2,
+        "userID": 35,
+        "destinationID": 25,
+        "travelers": 5,
+        "date": "2022/10/04",
+        "duration": 18,
+        "status": "approved",
+        "suggestedActivities": []
+        },
+    ];
+ 
+    expect(trip.findUpcomingTrips(35)).to.deep.equal(a);
+  });
+
+
+
   // it('should return a message if no such user found', function() {
   //   expect(traveler.findTravelerById(91)).to.equal("No such user found.");
   // });
