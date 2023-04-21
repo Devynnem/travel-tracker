@@ -79,6 +79,16 @@ const trips = [
     "status": "pending",
     "suggestedActivities": [],
   },
+  {
+    "id": 117,
+    "userID": 1,
+    "destinationID": 28,
+    "travelers": 3,
+    "date": "2021/01/09",
+    "duration": 15,
+    "status": "approved",
+    "suggestedActivities": []
+    },
   // {
   //   "id": 116,
   //   "userID": 2,

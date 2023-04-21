@@ -70,7 +70,19 @@ class Trip {
     console.log("tripsThisYear", tripsThisYear)
     console.log("thisYearsDestination", thisYearsDestination)
     return thisYearsCost
-  }
+  };
+
+findDestinationForUser(id) {
+  return this.filterByTraveler(id).reduce((acc, cv) => {
+    this.destinationData.forEach(destination => {
+      if (destination.id === cv.destinationID){
+        acc.push(destination)
+      }
+    })
+    return acc
+  }, []);
+}
+
 };
 
 

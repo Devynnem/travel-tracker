@@ -162,6 +162,20 @@ describe('Trip', function() {
     expect(trip.calculateTotalCostPerYear(2)).to.equal(6040);
   });
 
+  it('should find all the destinations for a traveler by their id', function() {
+    const a = [
+      {
+        "id": 28,
+        "destination": "San Juan, Puerto Rico",
+        "estimatedLodgingCostPerDay": 70,
+        "estimatedFlightCostPerPerson": 900,
+        "image": "https://images.unsplash.com/photo-1580237541049-2d715a09486e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80",
+        "alt": "white and brown concrete buildings near sea under white clouds during daytime"
+      },
+    ]; 
+    expect(trip.findDestinationForUser(1)).to.deep.equal(a);
+  });
+
 
   // it('should return a message if no such user found', function() {
   //   expect(traveler.findTravelerById(91)).to.equal("No such user found.");
