@@ -48,6 +48,36 @@ const trips = [
   "duration": 18,
   "status": "approved",
   "suggestedActivities": []
-  }
+  },
+  {
+    "id": 89,
+    "userID": 2,
+    "destinationID": 10,
+    "travelers": 5,
+    "date": "2019/09/27",
+    "duration": 13,
+    "status": "approved",
+    "suggestedActivities": []
+  },
+  {
+    "id": 100,
+    "userID": 2,
+    "destinationID": 6,
+    "travelers": 6,
+    "date": "2020/3/28",
+    "duration": 10,
+    "status": "approved",
+    "suggestedActivities": []
+  },
+  {
+    "id": 71,
+    "userID": 38,
+    "destinationID": 28,
+    "travelers": 1,
+    "date": "2020/05/26",
+    "duration": 11,
+    "status": "pending",
+    "suggestedActivities": [],
+  },
 ]
 export default trips;
