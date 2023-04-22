@@ -69,7 +69,23 @@ const destinations = [
     "estimatedFlightCostPerPerson": 395,
     "image": "https://images.unsplash.com/photo-1524396309943-e03f5249f002?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80",
     "alt": "city during the day time with eiffel tower"
-    }, 
+  },
+  {
+    "id": 44,
+    "destination": "Caye Caulker, Belize",
+    "estimatedLodgingCostPerDay": 450,
+    "estimatedFlightCostPerPerson": 80,
+    "image": "https://images.unsplash.com/photo-1544525977-0a3bca9e560d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
+    "alt": "boat on dock during daytime"
+  },
+  {
+    "id": 22,
+    "destination": "Rome, Italy",
+    "estimatedLodgingCostPerDay": 90,
+    "estimatedFlightCostPerPerson": 650,
+    "image": "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+    "alt": "people standing inside a colosseum during the day"
+    },
 ];
 
 export default destinations;
