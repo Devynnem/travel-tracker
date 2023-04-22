@@ -86,6 +86,14 @@ const destinations = [
     "image": "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
     "alt": "people standing inside a colosseum during the day"
     },
+    {
+      "id": 49,
+      "destination": "Castries, St Lucia",
+      "estimatedLodgingCostPerDay": 650,
+      "estimatedFlightCostPerPerson": 90,
+      "image": "https://images.unsplash.com/photo-1524478075552-c2763ea171b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80",
+      "alt": "aerial photography of rocky mountain under cloudy sky"
+      },
 ];
 
 export default destinations;

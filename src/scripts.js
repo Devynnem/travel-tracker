@@ -17,8 +17,11 @@ dayjs().format()
 
 let welcomeMessage = document.querySelector("#headerWelcome");
 let allTrips = document.querySelector("#allTripsButton")
+let allTripsView = document.querySelector("#allTripsView")
+let pastTrips = document.querySelector("#pastTripsButton")
+let pastTripsView = document.querySelector("#pastTripsView")
 let tripsContainer = document.querySelector("#tripsContainer")
-let currentTraveler, allTripsPrinted 
+let currentTraveler, allTripsPrinted, pastTripsPrinted 
 let traveler = new Traveler (travelers);
 let trip = new Trip (trips, destinations)
 
@@ -29,9 +32,10 @@ window.addEventListener('load', function() {
 })
 
 allTrips.addEventListener('click', seeAllTrips)
+pastTrips.addEventListener('click', seePastTrips)
 
 function generateRandomUser() {
-  currentTraveler = traveler.findTravelerById(Math.floor(Math.random() * 5));
+  currentTraveler = traveler.findTravelerById(Math.floor(Math.random() * travelers.length));
   // return currentTraveler
 };
 
@@ -40,26 +44,49 @@ function displayWelcomeMessage() {
 };
 
 function seeAllTrips() {
-  console.log(trip.filterByTraveler(currentTraveler.id))
+  // console.log(trip.filterByTraveler(currentTraveler.id))
   allTripsPrinted = trip.filterByTraveler(currentTraveler.id)
-  displayTrips(allTripsPrinted)
+  displayAllTrips(allTripsPrinted)
 }
 
-function displayTrips(tripsData) {
-  tripsContainer.innerHTML = "";
+function seePastTrips() {
+  console.log(trip.findPastTrips(currentTraveler.id))
+  pastTripsPrinted = trip.findPastTrips(currentTraveler.id)
+  displayPastTrips(pastTripsPrinted)
+}
+
+function displayAllTrips(tripsData) {
+  allTripsView.innerHTML = "";
   tripsData.forEach(trips => {
     const destination = trip.findDestinationById(trips.destinationID);
-    tripsContainer.innerHTML +=
+    allTripsView.innerHTML +=
     `<section class="trip-card-template">
     <img class="card-image" alt="${destination.alt}" src="${destination.image}" />
     <section class="trip-details-container">
       <p class="trip trip-name">Going To: ${destination.destination}</p>
-      <p class="trip date">Leaving On: ${trips.date}</p>
+      <p class="trip date">Date: ${trips.date}</p>
       <p class="trip number-of-travelers">${trips.travelers} Travelers</p>
       <p class="trip duration">${trips.duration} Days</p>
       <p class="trip status">Status: ${trips.status}</p>
     </section>
     </section>`
-  })
+  });
+};
 
-}
+function displayPastTrips(tripsData) {
+  pastTripsView.innerHTML = "";
+  tripsData.forEach(trips => {
+    const destination = trip.findDestinationById(trips.destinationID);
+    pastTripsView.innerHTML +=
+    `<section class="trip-card-template">
+    <img class="card-image" alt="${destination.alt}" src="${destination.image}" />
+    <section class="trip-details-container">
+      <p class="trip trip-name">Going To: ${destination.destination}</p>
+      <p class="trip date">Left On: ${trips.date}</p>
+      <p class="trip number-of-travelers">${trips.travelers} Travelers</p>
+      <p class="trip duration">${trips.duration} Days</p>
+      <p class="trip status">Status: ${trips.status}</p>
+    </section>
+    </section>`
+  });
+};
