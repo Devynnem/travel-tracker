@@ -17,6 +17,11 @@ body {
   display:flex
 }
 
+.traveler-request {
+  display: flex;
+  flex-direction: column;
+}
+
 .trips-section {
   display: flex;
 

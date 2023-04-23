@@ -15,13 +15,22 @@
       <h2>Today is <!-- more innerHTML for date --></h2>
       <h2 id="totalSpentOnTripsThisYear">Total Spent on Trips This Year: <!--innerHTML --></h2>
     </div>
+    <!-- <form id="form">
+      <label for="date">Date:</label>
+      <div id="calendar"></div>
+      <label for="ounces">Ounces Drank:</label>
+      <input id="ouncesInput" type="number" min="0" name="ounces" required>
+      <input type="submit" value="Submit New Hydration Entry">
+    </form> -->
     <form id="travelerRequests" class="traveler-request">
-      <h2 class="numberOfTravelers">Next Trip</h2>
-      <label for="date">Number of Travelers:</label>
-      <div id="calendar2"></div>
-      <input type="number" id="activityInput" required>
+      <h2 class="next-trip">Next Trip</h2>
+      <label for="nextDestination">Next Destination:</label>
+      <input type="text" id="activityInput" required>
+      <label for="numberOfTravelers">Number of Travelers:</label>
+      <input type="number" id="activityInput" min="1" required>
+      <label for="date">Date:</label>
+      <div id="calendar"></div>
       <input id="requestTrip" type="submit" value="Request Trip">
-      <section id="activityNotes" class="note"></section>
     </form>
   </header>
   <div class="data-container">		

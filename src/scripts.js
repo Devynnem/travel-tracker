@@ -24,11 +24,15 @@ let pastTripsView = document.querySelector("#pastTripsView")
 let pendingTripsView = document.querySelector("#pendingTripsView")
 let pendingTrips = document.querySelector("#pendingTripsButton")
 let totalSpentOnTripsThisYear = document.querySelector("#totalSpentOnTripsThisYear")
+let calendar =document.querySelector("#calendar")
+let form = document.querySelector("#travelerRequests");
 
 // let tripsContainer = document.querySelector("#tripsContainer")
 
 
 let currentTraveler, allTripsPrinted, pastTripsPrinted, pendingTripsPrinted, traveler, trip
+let date = new Date();
+let currentDate = date.getFullYear() + "/" + ("0" + (date.getMonth()+1)).slice(-2) + "/"+ ("0" + date.getDate()).slice(-2);
 // let traveler = new Traveler (travelers);
 // let trip = new Trip (trips, destinations)
 
@@ -45,11 +49,48 @@ allTrips.addEventListener('click', seeAllTrips)
 pastTrips.addEventListener('click', seePastTrips)
 pendingTrips.addEventListener('click', seePendingTrips)
 
+// form.addEventListener('submit', (event) => {
+//   event.preventDefault();
+//   const data = {
+//     "userID": newUser.id, 
+//     "date": document.getElementById('dateInput').value.split('-').join('/'), 
+//     "numOunces": ouncesInput.value
+//     {"id": , 
+//       "userID": currentTraveler.id, 
+//         "destinationID": <number>, 
+//           "travelers": <number>, 
+//             "date": document.getElementById('dateInput').value.split('-').join('/'), 
+//             "duration": <number>, 
+//               "status": <string 'approved' or 'pending'>, 
+//               "suggestedActivities": <array of strings>}
+//   };
+
+//   fetch('http://localhost:3001/api/v1/hydration', {
+//     method: 'POST',
+//     body: JSON.stringify(data),
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+//   })
+//   .then(data => data.json())
+//   .then(json => console.log(json))
+//   .catch(err => console.log(`Error at: ${err}`));
+
+//   displayNewHydrationEntry(data);
+//   event.target.reset();
+// })
+
 function displayTravelerInfo() {
   generateRandomUser();
   displayWelcomeMessage();
   showTotalSpentThisYear();
+  displayCalendar();
 }
+
+function displayCalendar() {
+  calendar.innerHTML = `<input id="dateInput" type="date" max="${currentDate.split('/').join('-')}" name="date" placeholder="yyyy/mm/dd" required>`;
+  // calendar2.innerHTML = `<input id="dateInput2" type="date" max="${currentDate.split('/').join('-')}" name="date" placeholder="yyyy/mm/dd" required>`;
+};
 function generateRandomUser() {
   // console.log(traveler.findTravelerById(1))
   // console.log(traveler.findTravelerById(Math.floor(Math.random() * traveler.length)))
