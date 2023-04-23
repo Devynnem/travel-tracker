@@ -10,7 +10,11 @@ body {
 
 .website-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+}
+
+.header-welcome {
+  display:flex
 }
 
 .trips-section {
@@ -50,8 +54,12 @@ body {
   width: 17vw;
 }
 .trip-card-template {
-  display: grid;
-  justify-items: center
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 /* .pending-trips {

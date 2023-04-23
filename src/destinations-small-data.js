@@ -94,6 +94,14 @@ const destinations = [
       "image": "https://images.unsplash.com/photo-1524478075552-c2763ea171b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80",
       "alt": "aerial photography of rocky mountain under cloudy sky"
       },
+      {
+        "id": 16,
+        "destination": "Bangkok, Thailand",
+        "estimatedLodgingCostPerDay": 35,
+        "estimatedFlightCostPerPerson": 988,
+        "image": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80",
+        "alt": "ornate buildings with a garden during the day"
+        },
 ];
 
 export default destinations;

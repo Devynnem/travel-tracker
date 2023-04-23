@@ -127,7 +127,7 @@ describe('Trip', function() {
     const a = [
       {
         "id": 1,
-        "userID": 44,
+        "userID": 6,
         "destinationID": 49,
         "travelers": 1,
         "date": "2022/09/16",
@@ -137,7 +137,7 @@ describe('Trip', function() {
         },
     ];
  
-    expect(trip.findPastTrips(44)).to.deep.equal(a);
+    expect(trip.findPastTrips(6)).to.deep.equal(a);
   });
 
   it('should find a destination by name', function() {

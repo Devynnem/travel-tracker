@@ -50,7 +50,7 @@ class Trip {
     const tripsThisYear = travelerTrips.filter(trip => {
       const splitDate = trip.date.split("/");
       const year = splitDate[0];
-      return year === "2020";
+      return year === "2022";
     })
     const thisYearsDestination = tripsThisYear.map(trip => trip.destinationID).reduce((acc, cv) => {
       this.destinationData.forEach(destination => {
@@ -62,14 +62,14 @@ class Trip {
     }, []);
     const thisYearsCost = tripsThisYear.reduce((acc, cv) => {
       const yearsDestinations = thisYearsDestination.find(destination => destination.id === cv.destinationID )
-      acc += (yearsDestinations.estimatedLodgingCostPerDay * cv.duration)
-      acc += (yearsDestinations.estimatedFlightCostPerPerson * cv.travelers)
+      acc += (yearsDestinations.estimatedLodgingCostPerDay * cv.duration) * 1.1
+      acc += (yearsDestinations.estimatedFlightCostPerPerson * cv.travelers) * 1.1
       console.log("yearsDestinations", yearsDestinations)
       return acc
     }, 0)
     console.log("tripsThisYear", tripsThisYear)
     console.log("thisYearsDestination", thisYearsDestination)
-    return thisYearsCost
+    return Number(thisYearsCost.toFixed(0));
   };
 
 findDestinationForUser(id) {

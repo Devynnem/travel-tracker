@@ -5,19 +5,14 @@ const travelers = [
   "travelerType": "relaxer"
   },
   {
-    "id": 44,
-    "name": "Marijo MacNeilley",
-    "travelerType": "photographer"
+    "id": 2,
+    "name": "Rachael Vaughten",
+    "travelerType": "thrill-seeker"
   },
   {
-  "id": 2,
-  "name": "Rachael Vaughten",
-  "travelerType": "thrill-seeker"
-  },
-  {
-  "id": 3,
-  "name": "Sibby Dawidowitsch",
-  "travelerType": "shopper"
+    "id": 3,
+    "name": "Sibby Dawidowitsch",
+    "travelerType": "shopper"
   },
   {
     "id": 4,
@@ -28,6 +23,11 @@ const travelers = [
     "id": 5,
     "name": "Tiffy Grout",
     "travelerType": "thrill-seeker"
+  },
+  {
+    "id": 6,
+    "name": "Marijo MacNeilley",
+    "travelerType": "photographer"
   },
 ]
 export default travelers;

@@ -20,8 +20,14 @@ let allTrips = document.querySelector("#allTripsButton")
 let allTripsView = document.querySelector("#allTripsView")
 let pastTrips = document.querySelector("#pastTripsButton")
 let pastTripsView = document.querySelector("#pastTripsView")
-let tripsContainer = document.querySelector("#tripsContainer")
-let currentTraveler, allTripsPrinted, pastTripsPrinted 
+let pendingTripsView = document.querySelector("#pendingTripsView")
+let pendingTrips = document.querySelector("#pendingTripsButton")
+let totalSpentOnTripsThisYear = document.querySelector("#totalSpentOnTripsThisYear")
+
+// let tripsContainer = document.querySelector("#tripsContainer")
+
+
+let currentTraveler, allTripsPrinted, pastTripsPrinted, pendingTripsPrinted
 let traveler = new Traveler (travelers);
 let trip = new Trip (trips, destinations)
 
@@ -29,10 +35,12 @@ window.addEventListener('load', function() {
   console.log("hello")
   generateRandomUser();
   displayWelcomeMessage();
+  showTotalSpentThisYear();
 })
 
 allTrips.addEventListener('click', seeAllTrips)
 pastTrips.addEventListener('click', seePastTrips)
+pendingTrips.addEventListener('click', seePendingTrips)
 
 function generateRandomUser() {
   currentTraveler = traveler.findTravelerById(Math.floor(Math.random() * travelers.length));
@@ -40,7 +48,8 @@ function generateRandomUser() {
 };
 
 function displayWelcomeMessage() {
-  welcomeMessage.innerText = `Welcome, ${traveler.findTravelerById(currentTraveler.id).name}!`;
+  welcomeMessage.innerText = `Welcome 
+  ${traveler.findTravelerById(currentTraveler.id).name}!`;
 };
 
 function seeAllTrips() {
@@ -53,6 +62,12 @@ function seePastTrips() {
   console.log(trip.findPastTrips(currentTraveler.id))
   pastTripsPrinted = trip.findPastTrips(currentTraveler.id)
   displayPastTrips(pastTripsPrinted)
+}
+
+function seePendingTrips() {
+  console.log(trip.findUpcomingTrips(currentTraveler.id))
+  pendingTripsPrinted = trip.findUpcomingTrips(currentTraveler.id)
+  displayPendingTrips(pendingTripsPrinted)
 }
 
 function displayAllTrips(tripsData) {
@@ -90,3 +105,25 @@ function displayPastTrips(tripsData) {
     </section>`
   });
 };
+
+function displayPendingTrips(tripsData) {
+  pendingTripsView.innerHTML = "";
+  tripsData.forEach(trips => {
+    const destination = trip.findDestinationById(trips.destinationID);
+    pendingTripsView.innerHTML +=
+    `<section class="trip-card-template">
+    <img class="card-image" alt="${destination.alt}" src="${destination.image}" />
+    <section class="trip-details-container">
+      <p class="trip trip-name">Going To: ${destination.destination}</p>
+      <p class="trip date">Left On: ${trips.date}</p>
+      <p class="trip number-of-travelers">${trips.travelers} Travelers</p>
+      <p class="trip duration">${trips.duration} Days</p>
+      <p class="trip status">Status: ${trips.status}</p>
+    </section>
+    </section>`
+  });
+}
+
+function showTotalSpentThisYear() {
+  totalSpentOnTripsThisYear.innerText = `Total Spent on Trips This Year: $${trip.calculateTotalCostPerYear(currentTraveler.id)}`
+}
