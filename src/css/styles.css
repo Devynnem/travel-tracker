@@ -1,26 +1,65 @@
+* {
+  border: 2px rgb(11, 237, 71);
+}
 body {
   background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .website-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
-/* .data-container {
-  display: flex;
-  ;
-} */
+.header-welcome {
+  display:flex
+}
+
 .trips-section {
   display: flex;
+
   justify-content: space-around;
+}
+
+.all-trips-section,
+.past-trips-section,
+.pending-trips-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .trips {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+}
+
+.data-container {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center
+}
+
+
+
+.card-image {
+  border-radius: 5px;
+  height: 20vh;
+  margin-bottom: 15%;
+  margin-left: 8%;
+  margin-top: 8%;
+  width: 17vw;
+}
+.trip-card-template {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 /* .pending-trips {
