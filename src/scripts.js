@@ -3,11 +3,12 @@
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/styles.css';
+import { travelerDataFetch } from './apiCalls';
 import Traveler from '../src/Traveler.js';
 import Trip from '../src/Trip.js';
-import travelers from '../src/traveler-small-data';
-import destinations from '../src/destinations-small-data';
-import trips from '../src/trips-small-data';
+// import travelers from '../src/traveler-small-data';
+// import destinations from '../src/destinations-small-data';
+// import trips from '../src/trips-small-data';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
@@ -27,23 +28,32 @@ let totalSpentOnTripsThisYear = document.querySelector("#totalSpentOnTripsThisYe
 // let tripsContainer = document.querySelector("#tripsContainer")
 
 
-let currentTraveler, allTripsPrinted, pastTripsPrinted, pendingTripsPrinted
-let traveler = new Traveler (travelers);
-let trip = new Trip (trips, destinations)
+let currentTraveler, allTripsPrinted, pastTripsPrinted, pendingTripsPrinted, traveler, trip
+// let traveler = new Traveler (travelers);
+// let trip = new Trip (trips, destinations)
 
 window.addEventListener('load', function() {
-  console.log("hello")
-  generateRandomUser();
-  displayWelcomeMessage();
-  showTotalSpentThisYear();
+  Promise.all([travelerDataFetch('travelers'), travelerDataFetch('trips'), travelerDataFetch('destinations')])
+  .then(data => {
+    traveler = new Traveler (data[0].travelers);
+    trip = new Trip (data[1].trips, data[2].destinations)
+    displayTravelerInfo()
+  })
 })
 
 allTrips.addEventListener('click', seeAllTrips)
 pastTrips.addEventListener('click', seePastTrips)
 pendingTrips.addEventListener('click', seePendingTrips)
 
+function displayTravelerInfo() {
+  generateRandomUser();
+  displayWelcomeMessage();
+  showTotalSpentThisYear();
+}
 function generateRandomUser() {
-  currentTraveler = traveler.findTravelerById(Math.floor(Math.random() * travelers.length));
+  // console.log(traveler.findTravelerById(1))
+  // console.log(traveler.findTravelerById(Math.floor(Math.random() * traveler.length)))
+  currentTraveler = traveler.findTravelerById(Math.floor(Math.random() * 50));
   // return currentTraveler
 };
 
