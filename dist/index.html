@@ -24,10 +24,26 @@
     </form> -->
     <form id="travelerRequests" class="traveler-request">
       <h2 class="next-trip">Next Trip</h2>
+     
       <label for="nextDestination">Next Destination:</label>
-      <input type="text" id="activityInput" required>
+      <input class="destination-input" id="destinationInput" list="destinationsList" name="destinations" required> 
+        <datalist id="destinationsList">
+          <option value="Amsterdam, Netherlands"> <option value="Anchorage, Alaska"> <option value="Antananarivo, Madagascar"> <option value="Bangkok, Thailand">
+          <option value="Brussels, Belgium"> <option value="Calgary, Canada"> <option value="Cape Town, South Africa"> <option value="Cartagena, Colombia">
+          <option value="Castries, St Lucia"> <option value="Caye Caulker, Belize"> <option value="Colombo, Sri Lanka"> <option value="Copenhagen, Denmark">
+          <option value="Dar es Salaam, Tanzania"> <option value="Frankfurt, Germany"> <option value="Cape Town, South Africa"> <option value="Helsinki, Finland">
+          <option value="Hobart, Tasmania"> <option value="Jaipur, India"> <option value="Jakarta, Indonesia"> <option value="Kathmandu, Nepal">
+          <option value="La Isla Tortuga, Costa Rica"> <option value="Lima, Peru"> <option value="London, England"> <option value="Madrid, Spain">
+          <option value="Manila, Philippines"> <option value="Marrakesh, Morocco"> <option value="Miami, Florida"> <option value="Mikonos, Greece">
+          <option value="Montego Bay, Jamaica"> <option value="Nassau, The Bahamas"> <option value="New York, New York"> <option value="Paris, France">
+          <option value="Porto, Portugal"> <option value="Quito, Ecuador"> <option value="Reykjavík, Iceland"> <option value="Rome, Italy">
+          <option value="San Francisco, California"> <option value="San Juan, Puerto Rico"> <option value="Santo Domingo, Dominican Republic"> <option value="Seoul, South Korea">
+          <option value="St. Petersburg, Russia"> <option value="Stockholm, Sweden"> <option value="Sydney, Austrailia"> <option value="Tokyo, Japan">
+          <option value="Toronto, Canada"> <option value="Tulum, Mexico"> <option value="Victoria, Seychelles"> <option value="Vilnius, Lithuania">
+          <option value="Wellington, New Zealand"> <option value="Willemstad, Curaçao"> <option value="Zürich, Switzerland">
+          </datalist>
       <label for="numberOfTravelers">Number of Travelers:</label>
-      <input type="number" id="activityInput" min="1" required>
+      <input type="number" id="tavelerInput" min="1" required>
       <label for="date">Date:</label>
       <div id="calendar"></div>
       <input id="requestTrip" type="submit" value="Request Trip">

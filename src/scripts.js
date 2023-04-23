@@ -26,6 +26,7 @@ let pendingTrips = document.querySelector("#pendingTripsButton")
 let totalSpentOnTripsThisYear = document.querySelector("#totalSpentOnTripsThisYear")
 let calendar =document.querySelector("#calendar")
 let form = document.querySelector("#travelerRequests");
+let tavelerInput = document.querySelector("#tavelerInput");
 
 // let tripsContainer = document.querySelector("#tripsContainer")
 
@@ -41,6 +42,7 @@ window.addEventListener('load', function() {
   .then(data => {
     traveler = new Traveler (data[0].travelers);
     trip = new Trip (data[1].trips, data[2].destinations)
+    console.log(trip)
     displayTravelerInfo()
   })
 })
@@ -48,13 +50,16 @@ window.addEventListener('load', function() {
 allTrips.addEventListener('click', seeAllTrips)
 pastTrips.addEventListener('click', seePastTrips)
 pendingTrips.addEventListener('click', seePendingTrips)
+// dropdown.addEventListener('click', createDropdown)
 
 // form.addEventListener('submit', (event) => {
 //   event.preventDefault();
 //   const data = {
 //     "userID": newUser.id, 
 //     "date": document.getElementById('dateInput').value.split('-').join('/'), 
-//     "numOunces": ouncesInput.value
+//     "travelers": tavelerInput.value,
+   //  "duration": 
+  //   "status": "pending" 
 //     {"id": , 
 //       "userID": currentTraveler.id, 
 //         "destinationID": <number>, 
@@ -178,3 +183,4 @@ function displayPendingTrips(tripsData) {
 function showTotalSpentThisYear() {
   totalSpentOnTripsThisYear.innerText = `Total Spent on Trips This Year: $${trip.calculateTotalCostPerYear(currentTraveler.id)}`
 }
+
