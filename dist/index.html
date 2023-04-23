@@ -14,6 +14,7 @@
       <h1>Where in the World Should You Go?</h1>
       <h2>Today is <!-- more innerHTML for date --></h2>
       <h2 id="totalSpentOnTripsThisYear">Total Spent on Trips This Year: <!--innerHTML --></h2>
+      <h3 id="newEntry"></h3>
     </div>
     <!-- <form id="form">
       <label for="date">Date:</label>
@@ -26,7 +27,7 @@
       <h2 class="next-trip">Next Trip</h2>
      
       <label for="nextDestination">Next Destination:</label>
-      <input class="destination-input" id="destinationInput" list="destinationsList" name="destinations" required> 
+      <input class="destination-input" id="destinationInput" list="destinationsList" name="destinations" placeholder="next Destination" required> 
         <datalist id="destinationsList">
           <option value="Amsterdam, Netherlands"> <option value="Anchorage, Alaska"> <option value="Antananarivo, Madagascar"> <option value="Bangkok, Thailand">
           <option value="Brussels, Belgium"> <option value="Calgary, Canada"> <option value="Cape Town, South Africa"> <option value="Cartagena, Colombia">
@@ -43,9 +44,12 @@
           <option value="Wellington, New Zealand"> <option value="Willemstad, Curaçao"> <option value="Zürich, Switzerland">
           </datalist>
       <label for="numberOfTravelers">Number of Travelers:</label>
-      <input type="number" id="tavelerInput" min="1" required>
+      <input type="number" id="numberOfTravelers" min="1" placeholder="number of Travelers" required>
       <label for="date">Date:</label>
       <div id="calendar"></div>
+      <label for="numberOfDays">Duration of Trip:</label>
+      <input type="number" id="numberOfDays" min="1" placeholder="duration of Trip" required>
+      <input id="requestTripEstimatedCost" type="submit" value="Request Trip Estimated Cost">
       <input id="requestTrip" type="submit" value="Request Trip">
     </form>
   </header>
