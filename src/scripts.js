@@ -257,6 +257,9 @@ function showTripCost() {
     "status": "pending",
     "suggestedActivities": [], 
     }
-  const total = ((destinationId.estimatedFlightCostPerPerson * data.travelers) + (destinationId.estimatedLodgingCostPerDay * data.duration) * 1.1).toFixed(0)
+  const total = (((destinationId.estimatedFlightCostPerPerson * data.travelers) + (destinationId.estimatedLodgingCostPerDay * data.duration)) * 1.1).toFixed(0)
+  console.log(destinationId.estimatedFlightCostPerPerson * data.travelers)
+  console.log(destinationId.estimatedLodgingCostPerDay * data.duration)
+  console.log( 300 * 1.1)
   newCostNewTrip.innerText = `Estimated cost for this trip is $${total}`
 }
