@@ -16,13 +16,14 @@ body {
 .header-welcome {
   display:flex
 }
-.request-trip-estimated-cost {
+/* .request-trip-estimated-cost {
   margin: 10px;
-}
+} */
 .traveler-request {
   display: flex;
   flex-direction: column;
   margin: 10px;
+  align-items: stretch;
 }
 
 .trips-section {
