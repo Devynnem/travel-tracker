@@ -25,7 +25,6 @@
     </form> -->
     <form id="travelerRequests" class="traveler-request">
       <h2 class="next-trip">Next Trip</h2>
-     
       <label for="nextDestination">Next Destination:</label>
       <input class="destination-input" id="destinationInput" list="destinationsList" name="destinations" placeholder="next Destination" required> 
         <datalist id="destinationsList">
@@ -49,7 +48,8 @@
       <div id="calendar"></div>
       <label for="numberOfDays">Duration of Trip:</label>
       <input type="number" id="numberOfDays" min="1" placeholder="duration of Trip" required>
-      <input id="requestTripEstimatedCost" type="submit" value="Request Trip Estimated Cost">
+      <input class="request-trip-estimated-cost" id="requestTripEstimatedCost" type="submit" value="Request Trip Estimated Cost">
+      <h3 id="newCostNewTrip"></h3>
       <input id="requestTrip" type="submit" value="Request Trip">
     </form>
   </header>

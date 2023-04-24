@@ -26,10 +26,12 @@ let pendingTrips = document.querySelector("#pendingTripsButton")
 let totalSpentOnTripsThisYear = document.querySelector("#totalSpentOnTripsThisYear")
 let calendar =document.querySelector("#calendar")
 let form = document.querySelector("#travelerRequests");
+let requestTripEstimatedCost = document.querySelector("#requestTripEstimatedCost")
 let destinationInput = document.querySelector("#destinationInput");
 let numberOfTravelers = document.querySelector("#numberOfTravelers");
 let duration = document.querySelector("#numberOfDays");
-let newEntry = document.querySelector('#newEntry');
+let newEntry = document.querySelector("#newEntry");
+let newCostNewTrip = document.querySelector("#newCostNewTrip");
 
 // let tripsContainer = document.querySelector("#tripsContainer")
 
@@ -56,7 +58,8 @@ window.addEventListener('load', function() {
 
 allTrips.addEventListener('click', seeAllTrips)
 pastTrips.addEventListener('click', seePastTrips)
-pendingTrips.addEventListener('click', seePendingTrips)
+requestTripEstimatedCost.addEventListener('click',showTripCost)
+// pendingTrips.addEventListener('click', seePendingTrips)
 // dropdown.addEventListener('click', createDropdown)
 
 
@@ -111,11 +114,11 @@ function seePastTrips() {
   displayPastTrips(pastTripsPrinted)
 }
 
-function seePendingTrips() {
-  console.log(trip.findUpcomingTrips(currentTraveler.id))
-  pendingTripsPrinted = trip.findUpcomingTrips(currentTraveler.id)
-  displayPendingTrips(pendingTripsPrinted)
-}
+// function seePendingTrips() {
+//   console.log(trip.findUpcomingTrips(currentTraveler.id))
+//   pendingTripsPrinted = trip.findUpcomingTrips(currentTraveler.id)
+//   displayPendingTrips(pendingTripsPrinted)
+// }
 
 function displayAllTrips(tripsData) {
   allTripsView.innerHTML = "";
@@ -194,7 +197,7 @@ form.addEventListener('submit', (event) => {
   const destinationId = trip.destinationData.find(destination => destination.destination === destinationInput.value);
   console.log(destinationId)
   const data = {
-    "id": trip.tripData.length + 1, 
+    "id": trip.tripData.length += 1, 
     "userID": currentTraveler, 
     "destinationID": destinationId.id,
     "date": document.getElementById('dateInput').value.split('-').join('/'), 
@@ -215,7 +218,8 @@ form.addEventListener('submit', (event) => {
   .catch(err => console.log(`Error at: ${err}`));
 
   displayNewTripEntry(destinationId);
-  displayPendingTrips(data, destinationId)
+  displayPendingTrips(data, destinationId);
+  // showTripCost(data, destinationId);
   event.target.reset();
   });
 
@@ -223,7 +227,7 @@ form.addEventListener('submit', (event) => {
   newEntry.innerText = `Your trip request for ${destinationId.destination} is pending!`;
 }
 function displayPendingTrips(data, destinationId) {
-  pendingTripsView.innerHTML = "";
+  // pendingTripsView.innerHTML = "";
   // data.forEach(trips => {
   //   const destination = trip.findDestinationById(trips.destinationID);
   pendingTripsView.innerHTML +=
@@ -240,3 +244,19 @@ function displayPendingTrips(data, destinationId) {
   // });
 }
 
+function showTripCost() {
+  event.preventDefault();
+  const destinationId = trip.destinationData.find(destination => destination.destination === destinationInput.value);
+  const data = {
+    "id": trip.tripData.length += 1, 
+    "userID": currentTraveler, 
+    "destinationID": destinationId.id,
+    "date": document.getElementById('dateInput').value.split('-').join('/'), 
+    "travelers": numberOfTravelers.value,
+    "duration": duration.value,
+    "status": "pending",
+    "suggestedActivities": [], 
+    }
+  const total = ((destinationId.estimatedFlightCostPerPerson * data.travelers) + (destinationId.estimatedLodgingCostPerDay * data.duration) * 1.1).toFixed(0)
+  newCostNewTrip.innerText = `Estimated cost for this trip is $${total}`
+}
