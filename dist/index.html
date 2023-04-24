@@ -7,8 +7,26 @@
   <title>Travel Tracker</title>
 </head>
 <body>
-
-  <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
+  <section class="login-page" id="login-sectioin">
+    <section class="login-container">
+      <form class="login" id="loginForm">
+        <img>
+        <h1 class="login-title">Please log in below</h1>
+        <section class="username-section">
+          <label class="username" for="username">Username</label>
+          <input type="text" class="login-input" id="usernameInput" autofocus required placeholder="Username">
+        </section>
+        <section class="password-section">
+          <label class="password" for="password">Password</label>
+          <input type="password" class="login-input" id="passwordInput" autofocus required placeholder="password">
+        </section>
+        <h2 hidden class="username-error" id="loginError" aria-errormessage="login-error-message" aria-invalid="false">Incorrect username and or password</h2>
+        <button class="login-button button" type="button" id="loginButton">Login</button>
+      </form>
+    </section>
+  </section>
+  <!-- <img src="./images/turing-logo.png" alt="turing logo">  -->
+  <div hidden class="main-page">
   <header id="header" class="website-header">
     <h1 id="headerWelcome" class="header-welcome"> <!-- innerHTML will go in h1 for the Welcome...Whoever --></h1>
     <div class="lower-header">
@@ -78,6 +96,7 @@
         </section>
       </div>
     </main>
+  </div>
   </div>
       <!-- <div>
         <section class="all-trips-container" id="tripsContainer">
