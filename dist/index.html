@@ -7,12 +7,13 @@
   <title>Travel Tracker</title>
 </head>
 <body>
+
   <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   <header id="header" class="website-header">
     <h1 id="headerWelcome" class="header-welcome"> <!-- innerHTML will go in h1 for the Welcome...Whoever --></h1>
     <div class="lower-header">
       <h1>Where in the World Should You Go?</h1>
-      <h2>Today is <!-- more innerHTML for date --></h2>
+      <h2 id="todaysDate">Today is <!-- more innerHTML for date --></h2>
       <h2 id="totalSpentOnTripsThisYear">Total Spent on Trips This Year: <!--innerHTML --></h2>
       <h3 id="newEntry"></h3>
     </div>
@@ -25,7 +26,7 @@
     </form> -->
     <form id="travelerRequests" class="traveler-request">
       <h2 class="next-trip">Next Trip</h2>
-      <label for="nextDestination">Next Destination:</label>
+      <label for="newDestinationToChoose">Next Destination:</label>
       <input class="destination-input" id="destinationInput" list="destinationsList" name="destinations" placeholder="next Destination" required> 
         <datalist id="destinationsList">
           <option value="Amsterdam, Netherlands"> <option value="Anchorage, Alaska"> <option value="Antananarivo, Madagascar"> <option value="Bangkok, Thailand">
@@ -44,7 +45,7 @@
           </datalist>
       <label for="numberOfTravelers">Number of Travelers:</label>
       <input type="number" id="numberOfTravelers" min="1" placeholder="number of travelers" required>
-      <label for="date">Date:</label>
+      <label for="startDateNewTrip">Date:</label>
       <div id="calendar"></div>
       <label for="numberOfDays">Duration of Trip:</label>
       <input type="number" id="numberOfDays" min="1" placeholder="duration of trip" required>

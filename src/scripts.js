@@ -32,12 +32,17 @@ let numberOfTravelers = document.querySelector("#numberOfTravelers");
 let duration = document.querySelector("#numberOfDays");
 let newEntry = document.querySelector("#newEntry");
 let newCostNewTrip = document.querySelector("#newCostNewTrip");
-
+let todaysDate = document.querySelector("#todaysDate")
 // let tripsContainer = document.querySelector("#tripsContainer")
 
 
 let currentTraveler, allTripsPrinted, pastTripsPrinted, pendingTripsPrinted, traveler, trip
 let date = new Date();
+let year = date.getFullYear();
+let month = (date.getMonth() + 1).toString().padStart(2, '0');
+let day = date.getDate().toString().padStart(2, '0');
+let beginningOfDate = `${month}-${day}-${year}`;
+console.log(beginningOfDate);
 let currentDate = date.getFullYear() + "/" + ("0" + (date.getMonth()+1)).slice(-2) + "/"+ ("0" + date.getDate()).slice(-2);
 // let destinationID = trip
 
@@ -84,6 +89,12 @@ function displayTravelerInfo() {
   displayWelcomeMessage();
   showTotalSpentThisYear();
   displayCalendar();
+  showTodaysDate()
+}
+
+function showTodaysDate() {
+  console.log(date)
+  todaysDate.innerText = `Today's date is ${beginningOfDate}`
 }
 
 function displayCalendar() {
