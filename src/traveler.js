@@ -1,10 +1,10 @@
-import travelers from './traveler-small-data.js';
+// import travelers from './traveler-small-data.js';
 
 class Traveler {
   constructor(allTavelerData) {
     this.allTavelerData = allTavelerData;
   };
-  
+
   findTravelerById(id) {
     const traveler = this.allTavelerData.find(traveler => traveler.id === id)
     if (!traveler) {
