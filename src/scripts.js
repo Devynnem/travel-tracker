@@ -122,7 +122,7 @@ function logInTraveler() {
     loginError.removeAttribute('hidden')
     loginForm.reset()
   }
-  loginPage.classList.add('hidden')
+  loginForm.style.display = "none"
   displayWelcomeMessage();
   showTotalSpentThisYear();
   displayCalendar();
