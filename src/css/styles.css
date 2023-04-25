@@ -1,9 +1,9 @@
-* {
+/* * {
   border: solid 2px rgb(11, 237, 71);
-}
+} */
 
 .login {
-  background-image: url(./src/images/airplane-night-plane-sky-travel-city-blue-tones-background.jpg);
+  /* background-image: url(./src/images/airplan-background.jpg); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,8 +17,9 @@ img {
 }
 
 body {
-  /* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
-  background-image: url(./images/airplane-night-plane-sky-travel-city-blue-tones-background.jpg);
+  background: radial-gradient(circle, rgb(16, 173, 246) 0%, rgb(116, 209, 240) 100%);
+  /* background-image: url(./images/airplane-night-plane-sky-travel-city-blue-tones-background.jpg); */
+  /* background-image: url(./src/images/airplan-background.jpg); */
   display: flex;
   flex-direction: column;
   height: 100vh;
