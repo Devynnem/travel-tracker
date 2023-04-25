@@ -11,7 +11,7 @@ import Trip from '../src/Trip.js';
 // import trips from '../src/trips-small-data';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+import './images/travel-logos.png'
 //import dayjs from 'dayjs' // ES 2015
 const dayjs = require('dayjs')
 dayjs().format()
@@ -39,6 +39,7 @@ let passwordInput = document.querySelector("#passwordInput");
 let unHideInputs = document.querySelector(".main-page");
 let loginForm = document.querySelector("#loginForm");
 let loginError = document.querySelector("#loginError");
+let loginPage = document.querySelector(".login-page")
 // let tripsContainer = document.querySelector("#tripsContainer")
 
 
@@ -121,6 +122,7 @@ function logInTraveler() {
     loginError.removeAttribute('hidden')
     loginForm.reset()
   }
+  loginPage.classList.add('hidden')
   displayWelcomeMessage();
   showTotalSpentThisYear();
   displayCalendar();
