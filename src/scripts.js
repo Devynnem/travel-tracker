@@ -82,9 +82,11 @@ allTrips.addEventListener('click', function() {
 pastTrips.addEventListener('click', function() {
   displayPastTrips(pastTripsPrinted)
 })
+
+pendingTrips.addEventListener('click', function() {
+  displayPendingTrips(pendingTripsData)
+})
 requestTripEstimatedCost.addEventListener('click',showTripCost)
-// pendingTrips.addEventListener('click', seePendingTrips)
-// dropdown.addEventListener('click', createDropdown)
 
 Promise.all([travelerDataFetch('travelers'), travelerDataFetch('trips'), travelerDataFetch('destinations')])
 .then(data => {
@@ -103,7 +105,6 @@ Promise.all([travelerDataFetch('travelers'), travelerDataFetch('trips'), travele
 function logInTraveler() {
   const travelerUsername = usernameInput.value.slice(0, 8);
   const longerId = usernameInput.value.slice(8);
-  // const longestId = usernameInput.value.slice(8, 3);
   if (travelerUsername === "traveler" && Number(longerId) <= 50 && passwordInput.value === "travel") {
     // unHideImg.removeAttribute('hidden');
     currentTraveler = traveler.findTravelerById(Number(longerId));
@@ -211,6 +212,25 @@ function displayPastTrips(tripsData) {
   });
 };
 
+function displayPendingTrips(tripsData) {
+  pendingTripsView.innerHTML = "";
+  tripsData.forEach(trips => {
+    const destination = trip.findDestinationById(trips.destinationID);
+    pendingTripsView.innerHTML +=
+    `<section class="trip-card-template">
+    <img class="card-image" alt="${destination.alt}" src="${destination.image}" />
+    <section class="trip-details-container">
+      <p class="trip trip-name">Going To: ${destination.destination}</p>
+      <p class="trip date">Date: ${trips.date}</p>
+      <p class="trip number-of-travelers">${trips.travelers} Travelers</p>
+      <p class="trip duration">${trips.duration} Days</p>
+      <p class="trip status">Status: ${trips.status}</p>
+    </section>
+    </section>`
+  });
+};
+
+
 
 function showTotalSpentThisYear() {
   // currentTraveler = traveler.findTravelerById(Number(longerId));
@@ -221,12 +241,12 @@ function showTotalSpentThisYear() {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  // console.log("LOOK HERE", trip.destinationData[0].id)
   const destinationId = trip.destinationData.find(destination => destination.destination === destinationInput.value);
-  console.log(destinationId)
+  // const maxId = Math.max(...trip.tripData.map(trip => trip.id))
+  console.log(trip.tripData.length)
   const data = {
-    "id": trip.tripData.length += 1, 
-    "userID": currentTraveler, 
+    "id": trip.tripData.length + 1, 
+    "userID": currentTravelerId, 
     "destinationID": destinationId.id,
     "date": document.getElementById('dateInput').value.split('-').join('/'), 
     "travelers": numberOfTravelers.value,
@@ -234,6 +254,7 @@ form.addEventListener('submit', (event) => {
     "status": "pending",
     "suggestedActivities": [], 
     }
+    console.log(data.id)
     fetch('http://localhost:3001/api/v1/trips', {
     method: 'POST',
     body: JSON.stringify(data),
@@ -242,11 +263,25 @@ form.addEventListener('submit', (event) => {
     }
   })
   .then(data => data.json())
-  .then(json => console.log(json))
+  .then(json => { 
+    console.log(json)
+    Promise.all([travelerDataFetch('travelers'), travelerDataFetch('trips'), travelerDataFetch('destinations')])
+  .then(data => {
+  traveler = new Traveler (data[0].travelers);
+  trip = new Trip (data[1].trips, data[2].destinations)
+  console.log(trip)
+})
+.catch((err) => {
+  loginErrorMessage.classList.remove("hidden");
+  loginErrorMessage.innerText = "Sorry, failed to load. Please try again later.";
+  loginButton.disabled = true;
+
+});
+  })
   .catch(err => console.log(`Error at: ${err}`));
 
   displayNewTripEntry(destinationId);
-  displayPendingTrips(data, destinationId);
+  displayNewPendingTrips(data, destinationId);
   // showTripCost(data, destinationId);
   event.target.reset();
   });
@@ -254,10 +289,7 @@ form.addEventListener('submit', (event) => {
   function displayNewTripEntry(destinationId) {
   newEntry.innerText = `Your trip request for ${destinationId.destination} is pending!`;
 }
-function displayPendingTrips(data, destinationId) {
-  // pendingTripsView.innerHTML = "";
-  // data.forEach(trips => {
-  //   const destination = trip.findDestinationById(trips.destinationID);
+function displayNewPendingTrips(data, destinationId) {
   pendingTripsView.innerHTML +=
     `<section class="trip-card-template">
     <img class="card-image" alt="${destinationId.alt}" src="${destinationId.image}" />
@@ -269,21 +301,20 @@ function displayPendingTrips(data, destinationId) {
       <p class="trip status">Status: ${data.status}</p>
     </section>
     </section>`;
-  // });
 }
 
 function showTripCost() {
   event.preventDefault();
   const destinationId = trip.destinationData.find(destination => destination.destination === destinationInput.value);
   const data = {
-    "id": trip.tripData.length += 1, 
+    // "id": trip.tripData.length += 1, 
     "userID": currentTraveler, 
     "destinationID": destinationId.id,
     "date": document.getElementById('dateInput').value.split('-').join('/'), 
     "travelers": numberOfTravelers.value,
     "duration": duration.value,
-    "status": "pending",
-    "suggestedActivities": [], 
+    // "status": "pending",
+    // "suggestedActivities": [], 
     }
   const total = (((destinationId.estimatedFlightCostPerPerson * data.travelers) + (destinationId.estimatedLodgingCostPerDay * data.duration)) * 1.1).toFixed(0)
   console.log(destinationId.estimatedFlightCostPerPerson * data.travelers)

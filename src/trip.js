@@ -38,7 +38,7 @@ class Trip {
     if (!foundDestination) {
       return "Destination not found."
     }
-    return foundDestination
+    return foundDestination 
   };
 
   findDestinationById(tripId) {
