@@ -118,22 +118,22 @@ function logInTraveler() {
     unHideInputs.removeAttribute('hidden');
     loginForm.reset();
     loginError.innerText = "";
+    loginForm.style.display = "none"
+    // loginForm.style.setProperty("display", "none");00
   } else if (traveler !== "traveler" || password.value !== "travel") {
     loginError.removeAttribute('hidden')
     loginForm.reset()
-  }
-  loginForm.style.display = "none"
-  displayWelcomeMessage();
-  showTotalSpentThisYear();
-  displayCalendar();
-  showTodaysDate()
+  } 
+  displayTravelerInfo()
+  // displayWelcomeMessage();
+  // showTotalSpentThisYear();
+  // displayCalendar();
+  // showTodaysDate()
 }
 
 
 function displayTravelerInfo() {
-  // generateRandomUser();
-  // currentTraveler = traveler.findTravelerById(Number(longerId));
-  // currentTravelerId = currentTraveler.id;
+  // loginForm.style.display = "none"
   displayWelcomeMessage();
   showTotalSpentThisYear();
   displayCalendar();
@@ -146,14 +146,9 @@ function showTodaysDate() {
 
 function displayCalendar() {
   calendar.innerHTML = `<input id="dateInput" type="date" min="${currentDate.split('/').join('-')}" name="date" placeholder="yyyy/mm/dd" required>`;
-  // calendar2.innerHTML = `<input id="dateInput2" type="date" max="${currentDate.split('/').join('-')}" name="date" placeholder="yyyy/mm/dd" required>`;
 };
-// function generateRandomUser() {
-//   // console.log(traveler.findTravelerById(1))
-//   // console.log(traveler.findTravelerById(Math.floor(Math.random() * traveler.length)))
-//   currentTraveler = traveler.findTravelerById(Math.floor(Math.random() * 50));
-//   // return currentTraveler
-// };
+
+
 
 function displayWelcomeMessage() {
   welcomeMessage.innerText = `Welcome 

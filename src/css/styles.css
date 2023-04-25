@@ -3,7 +3,6 @@
 } */
 
 .login {
-  /* background-image: url(./src/images/airplan-background.jpg); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,8 +17,6 @@ img {
 
 body {
   background: radial-gradient(circle, rgb(16, 173, 246) 0%, rgb(116, 209, 240) 100%);
-  /* background-image: url(./images/airplane-night-plane-sky-travel-city-blue-tones-background.jpg); */
-  /* background-image: url(./src/images/airplan-background.jpg); */
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -37,6 +34,11 @@ body {
 /* .request-trip-estimated-cost {
   margin: 10px;
 } */
+
+.next-trip {
+  padding: 0;
+  margin: 0;
+}
 .traveler-request {
   display: flex;
   flex-direction: column;
@@ -72,12 +74,19 @@ body {
   justify-content: center
 }
 
+.trip-details-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
 
 
 .card-image {
+
   border-radius: 5px;
   height: 20vh;
-  margin: 15% 0 0 8%;
+  /* margin: 15% 0 0 8%; */
   width: 17vw;
 }
 .trip-card-template {
@@ -85,6 +94,14 @@ body {
   justify-items: center;
   align-content: center;
   justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 10px;
+}
+
+.trip {
+  padding: 0;
+  margin: 0;
 }
 
 /* .pending-trips {
