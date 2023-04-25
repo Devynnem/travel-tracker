@@ -38,7 +38,7 @@ class Trip {
     if (!foundDestination) {
       return "Destination not found."
     }
-    return foundDestination
+    return foundDestination 
   };
 
   findDestinationById(tripId) {
@@ -50,7 +50,7 @@ class Trip {
     const tripsThisYear = travelerTrips.filter(trip => {
       const splitDate = trip.date.split("/");
       const year = splitDate[0];
-      return year === "2023";
+      return year === "2022";
     })
     const thisYearsDestination = tripsThisYear.map(trip => trip.destinationID).reduce((acc, cv) => {
       this.destinationData.forEach(destination => {

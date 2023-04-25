@@ -1,11 +1,26 @@
 * {
   border: solid 2px rgb(11, 237, 71);
 }
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 150px;
+  font-family: 'Atma';
+  font-weight: 900;
+}
+
+img {
+  height: 120px;
+}
+
 body {
   background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
   display: flex;
   flex-direction: column;
   height: 100vh;
+  font-family: 'Atma';
 }
 
 .website-header {
@@ -57,18 +72,14 @@ body {
 .card-image {
   border-radius: 5px;
   height: 20vh;
-  margin-bottom: 15%;
-  margin-left: 8%;
-  margin-top: 8%;
+  margin: 15% 0 0 8%;
   width: 17vw;
 }
 .trip-card-template {
   display: flex;
   justify-items: center;
-  align-items: center;
   align-content: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* .pending-trips {
