@@ -1,5 +1,3 @@
-// import travelers from './traveler-small-data.js';
-
 class Traveler {
   constructor(allTavelerData) {
     this.allTavelerData = allTavelerData;
