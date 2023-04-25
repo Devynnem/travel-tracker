@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,14 @@
   <link href='https://fonts.googleapis.com/css?family=Atma' rel='stylesheet'>
   <title>Travel Tracker</title>
 </head>
+
 <body>
   <section class="login-page" id="login-sectioin">
     <section class="login-container">
       <form class="login" id="loginForm">
-        <img src="./images/travel-logos.png" alt="travel logo"> 
-        <h1 class="login-title">Please log in below</h1>
+        <img src="./images/travel-logos.png" alt="travel logo">
+        <h1>Welcome to Travel Tracker</h1>
+        <h3 class="login-title">Please log in below</h3>
         <section class="username-section">
           <label class="username" for="username">Username</label>
           <input type="text" class="login-input" id="usernameInput" autofocus required placeholder="Username">
@@ -21,29 +24,23 @@
           <label class="password" for="password">Password</label>
           <input type="password" class="login-input" id="passwordInput" autofocus required placeholder="password">
         </section>
-        <h2 hidden class="username-error" id="loginError" aria-errormessage="login-error-message" aria-invalid="false">Incorrect username and or password</h2>
+        <h3 hidden class="username-error" id="loginError" aria-errormessage="login-error-message" aria-invalid="false">
+          Incorrect username and or password</h3>
         <button class="login-button button" type="button" id="loginButton">Login</button>
       </form>
     </section>
   </section>
   <!-- <img src="./images/turing-logo.png" alt="turing logo">  -->
   <div hidden class="main-page">
-    <img src="./images/travel-logos.png" alt="travel logo"> 
-  <header id="header" class="website-header">
-    <h1 id="headerWelcome" class="header-welcome"> <!-- innerHTML will go in h1 for the Welcome...Whoever --></h1>
-    <div class="lower-header">
-      <h1>Where in the World Should You Go?</h1>
-      <h2 id="todaysDate">Today is <!-- more innerHTML for date --></h2>
-      <h2 id="totalSpentOnTripsThisYear">Total Spent on Trips This Year: <!--innerHTML --></h2>
-      <h3 id="newEntry"></h3>
-    </div>
-    <!-- <form id="form">
-      <label for="date">Date:</label>
-      <div id="calendar"></div>
-      <label for="ounces">Ounces Drank:</label>
-      <input id="ouncesInput" type="number" min="0" name="ounces" required>
-      <input type="submit" value="Submit New Hydration Entry">
-    </form> -->
+    <img src="./images/travel-logos.png" alt="travel logo">
+    <header id="header" class="website-header">
+      <h1 id="headerWelcome" class="header-welcome"> <!-- innerHTML will go in h1 for the Welcome...Whoever --></h1>
+      <div class="lower-header">
+        <h1>Where in the World Should You Go?</h1>
+        <h2 id="todaysDate">Today is <!-- more innerHTML for date --></h2>
+        <h2 id="totalSpentOnTripsThisYear">Total Spent on Trips This Year: <!--innerHTML --></h2>
+        <h3 id="newEntry"></h3>
+      </div>
     <form id="travelerRequests" class="traveler-request">
       <h2 class="next-trip">Next Trip</h2>
       <label for="newDestinationToChoose">Next Destination:</label>
@@ -73,33 +70,29 @@
       <h3 id="newCostNewTrip"></h3>
       <input id="requestTrip" type="submit" value="Request Trip">
     </form>
-  </header>
-  <div class="data-container">		
-    <main id="main" class="main-section">
-      <div class="trips-section">
-        <section id="allTrips" class="all-trips-section">
-          <h2 id="allTrips" class="trips">All Trips</h2>              
-          <button id="allTripsButton">All Trips</button>
-          <h3 id="allTripsView"></h3>
-        </section>
-      <!-- </div> -->
-      <div class="trips-section">
-          <section id="past" class="past-trips-section">
-            <h2 id="pastTrips" class="trips">Where have you been?</h2>              
-            <button id="pastTripsButton">Past Trips</button>
-            <h3 id="pastTripsView"></h3>
+    </header>
+    <div class="data-container">
+      <main id="main" class="main-section">
+        <div class="trips-section">
+          <section id="allTrips" class="all-trips-section">
+            <h2 id="allTrips" class="trips">All Trips</h2>
+            <button id="allTripsButton">All Trips</button>
+            <h3 id="allTripsView"></h3>
           </section>
-      <!-- </div> -->
-      <!-- <div class="trips-section">        -->
-        <section id="pending" class="pending-trips-section">
-          <h2 id="pendingLocations" class="trips">Where to next?</h2>              
-          <button id="pendingTripsButton">Pending Trips</button>
-          <h3 id="pendingTripsView"></h3>
-        </section>
-      </div>
-    </main>
-  </div>
-  </div>
+          <section id="past" class="past-trips-section">
+              <h2 id="pastTrips" class="trips">Where have you been?</h2>
+              <button id="pastTripsButton">Past Trips</button>
+              <h3 id="pastTripsView"></h3>
+          </section>
+            <section id="pending" class="pending-trips-section">
+              <h2 id="pendingLocations" class="trips">Where to next?</h2>
+              <button id="pendingTripsButton">Pending Trips</button>
+              <h3 id="pendingTripsView"></h3>
+            </section>
+          </div>
+      </main>
+    </div>
+    </div>
       <!-- <div>
         <section class="all-trips-container" id="tripsContainer">
         </section>       

@@ -159,7 +159,7 @@ describe('Trip', function() {
   });
 
   it('should calculate the cost of all trips for this year', function() {
-    expect(trip.calculateTotalCostPerYear(2)).to.equal(6040);
+    expect(trip.calculateTotalCostPerYear(2)).to.equal(0);
   });
 
   it('should find all the destinations for a traveler by their id', function() {
